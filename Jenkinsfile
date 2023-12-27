@@ -2,6 +2,11 @@ pipeline {
     agent any
     
     stages {
+        stage('clone') {
+            steps {
+                sh "git clone https://github.com/Vanhall/sf-project-11"
+            }
+        }
         stage('nginx') {
             steps {
                 sh "docker run --name jenkins-nginx -d -p 9889:80 -v ${WORKSPACE}/sf-project-11:/usr/share/nginx/html nginx"
