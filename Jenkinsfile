@@ -36,7 +36,7 @@ pipeline {
             sh "docker rm -f jenkins-nginx"
             cleanWs()
         }
-        failed {
+        failure {
             emailext body: ':(', subject: 'Build Failed', to: 'vasyapupkin@example.com'
         }
     }
